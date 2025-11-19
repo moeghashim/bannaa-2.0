@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Cpu, Terminal, Brain, ArrowRight, Check, AlertCircle, Wrench, Video, Mail, Facebook, Instagram, Github, Youtube } from "lucide-react";
+import { Cpu, Terminal, Brain, BrainCog, ArrowRight, Check, AlertCircle, Wrench, Video, Mail, Facebook, Instagram, Github, Youtube } from "lucide-react";
 
 const content = {
   brand: "بنّاء",
@@ -126,8 +126,8 @@ export default function Home() {
       <nav className="w-full border-b-2 border-black bg-white/90 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 border-2 border-black bg-black p-0.5">
-              <img src="/bannaa_logo.png" alt="Bannaa Logo" className="w-full h-full object-contain invert" />
+            <div className="bg-black text-white p-1">
+              <BrainCog className="w-6 h-6" />
             </div>
             <h1 className="font-display text-xl md:text-2xl uppercase tracking-tighter rtl:tracking-normal">
               {content.brand}
@@ -369,8 +369,8 @@ export default function Home() {
             {/* Brand & Copyright */}
             <div className="flex flex-col gap-4 items-start md:items-end w-full md:w-auto">
                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-black p-1 border border-black">
-                    <img src="/bannaa_logo.png" alt="Bannaa Logo" className="w-full h-full object-contain invert" />
+                  <div className="bg-black text-white p-1">
+                    <BrainCog className="w-5 h-5" />
                   </div>
                   <span className="font-display text-xl uppercase tracking-tighter">{content.brand}</span>
                </div>
