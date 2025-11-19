@@ -177,13 +177,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-
-      {/* Corner Badge */}
-      <div className="fixed bottom-8 end-8 z-40 hidden md:block">
-        <div className="bg-white border-2 border-gray-200 rounded-xl shadow-lg px-4 py-2 flex items-center gap-2 font-sans text-sm font-medium text-gray-600">
-          Powered by <span className="flex items-center font-bold text-black"><Cpu className="w-4 h-4 me-1" /> BENNA ENGINE</span>
-        </div>
-      </div>
     </div>
   );
 }
