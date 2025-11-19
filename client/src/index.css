@@ -12,9 +12,9 @@
   --color-secondary-foreground: hsl(0 0% 0%);
   --color-border: hsl(0 0% 0%);
   
-  --font-sans: "Inter", sans-serif;
-  --font-display: "Archivo Black", sans-serif;
-  --font-mono: "Space Mono", monospace;
+  --font-sans: "Inter", "IBM Plex Sans Arabic", sans-serif;
+  --font-display: "Archivo Black", "Cairo", sans-serif;
+  --font-mono: "Space Mono", "IBM Plex Sans Arabic", monospace;
 
   --shadow-brutal: 4px 4px 0px 0px #000000;
   --shadow-brutal-lg: 8px 8px 0px 0px #000000;
@@ -55,4 +55,6 @@
   .brutal-btn-accent {
     @apply bg-secondary text-black border-2 border-black hover:bg-[#b3e600] hover:shadow-brutal;
   }
+  
+  /* RTL specific shadow adjustments if needed, but simple offset shadows usually look fine in either direction for brutalism */
 }
