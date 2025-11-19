@@ -47,7 +47,7 @@ const content = {
         { name: "Grok", logo: "/logos/grok.svg" },
         { name: "Nanobanana", logo: "/logos/nanobanana.svg" },
         { name: "Krea", logo: "/logos/krea.svg" },
-        { name: "Flora", logo: "/logos/flora.svg" },
+        { name: "Luma AI", logo: "/logos/luma.svg" },
         { name: "Midjourney", logo: "/logos/midjourney.svg" },
         { name: "Runway", logo: "/logos/runway.svg" },
       ]
