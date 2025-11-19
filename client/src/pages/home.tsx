@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Cpu, Terminal, Brain, BrainCog, ArrowRight, Check, AlertCircle, Wrench, Video, Mail, Facebook, Instagram, Github, Youtube, Loader2 } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 import { ApplicationModal } from "@/components/application-modal";
 
 const content = {
