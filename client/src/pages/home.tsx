@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Cpu, Terminal, Brain, ArrowRight, Check, AlertCircle } from "lucide-react";
+import { Cpu, Terminal, Brain, ArrowRight, Check, AlertCircle, Wrench, Video } from "lucide-react";
 
 const content = {
   brand: "بنّاء",
@@ -26,17 +26,32 @@ const content = {
     { label: "جاهزية للعمل", value: "١٠٠٪" },
   ],
   tools: {
-    title: "أدوات ستتقنها",
-    items: [
-      { name: "Replit", logo: "/logos/replit.svg" },
-      { name: "Cursor", logo: "/logos/cursor.svg" },
-      { name: "Gemini", logo: "/logos/gemini.svg" },
-      { name: "Make", logo: "/logos/make.svg" },
-      { name: "N8N", logo: "/logos/n8n.svg" },
-      { name: "Claude", logo: "/logos/claude.svg" },
-      { name: "V0", logo: "/logos/v0.svg" },
-      { name: "ChatGPT", logo: "/logos/chatgpt.svg" },
-    ]
+    building: {
+      title: "أدوات البناء",
+      items: [
+        { name: "Replit", logo: "/logos/replit.svg" },
+        { name: "Cursor", logo: "/logos/cursor.svg" },
+        { name: "Gemini", logo: "/logos/gemini.svg" },
+        { name: "Make", logo: "/logos/make.svg" },
+        { name: "N8N", logo: "/logos/n8n.svg" },
+        { name: "Claude", logo: "/logos/claude.svg" },
+        { name: "V0", logo: "/logos/v0.svg" },
+        { name: "ChatGPT", logo: "/logos/chatgpt.svg" },
+      ]
+    },
+    media: {
+      title: "أدوات الإنتاج الإعلامي",
+      items: [
+        { name: "Elevenlabs", logo: "/logos/elevenlabs.svg" },
+        { name: "Sora", logo: "/logos/sora.svg" },
+        { name: "Kling", logo: "/logos/kling.svg" },
+        { name: "Nanobanana", logo: "/logos/nanobanana.svg" },
+        { name: "Krea", logo: "/logos/krea.svg" },
+        { name: "Flora", logo: "/logos/flora.svg" },
+        { name: "Midjourney", logo: "/logos/midjourney.svg" },
+        { name: "Runway", logo: "/logos/runway.svg" },
+      ]
+    }
   },
   pricing: {
     title: "انضم إلى النخبة",
@@ -163,26 +178,58 @@ export default function Home() {
 
           {/* Tools Section */}
           <div className="border-t-2 border-black py-12 md:py-16">
-            <div className="flex items-center gap-4 mb-12">
-               <div className="h-4 w-4 bg-secondary border-2 border-black"></div>
-               <h2 className="font-display text-3xl md:text-4xl uppercase tracking-tight rtl:tracking-normal">
-                 {content.tools.title}
-               </h2>
-            </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {content.tools.items.map((tool, i) => (
-                <div key={i} className="bg-white border-2 border-black p-6 flex flex-col items-center justify-center gap-4 hover:shadow-brutal transition-all hover:-translate-y-1 group">
-                  <div className="w-12 h-12 relative grayscale group-hover:grayscale-0 transition-all duration-300">
-                    <img 
-                      src={tool.logo} 
-                      alt={`${tool.name} logo`} 
-                      className="w-full h-full object-contain"
-                    />
+            {/* Building Tools */}
+            <div className="mb-16">
+              <div className="flex items-center gap-4 mb-12">
+                 <div className="h-4 w-4 bg-secondary border-2 border-black flex items-center justify-center">
+                   <Wrench className="w-3 h-3 text-black" />
+                 </div>
+                 <h2 className="font-display text-3xl md:text-4xl uppercase tracking-tight rtl:tracking-normal">
+                   {content.tools.building.title}
+                 </h2>
+              </div>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {content.tools.building.items.map((tool, i) => (
+                  <div key={i} className="bg-white border-2 border-black p-6 flex flex-col items-center justify-center gap-4 hover:shadow-brutal transition-all hover:-translate-y-1 group h-32">
+                    <div className="w-12 h-12 relative grayscale group-hover:grayscale-0 transition-all duration-300">
+                      <img 
+                        src={tool.logo} 
+                        alt={`${tool.name} logo`} 
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <span className="font-mono font-bold text-sm uppercase tracking-wider">{tool.name}</span>
                   </div>
-                  <span className="font-mono font-bold text-sm uppercase tracking-wider">{tool.name}</span>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            {/* Media Tools */}
+            <div>
+              <div className="flex items-center gap-4 mb-12">
+                 <div className="h-4 w-4 bg-black text-white border-2 border-black flex items-center justify-center">
+                   <Video className="w-3 h-3" />
+                 </div>
+                 <h2 className="font-display text-3xl md:text-4xl uppercase tracking-tight rtl:tracking-normal">
+                   {content.tools.media.title}
+                 </h2>
+              </div>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {content.tools.media.items.map((tool, i) => (
+                  <div key={i} className="bg-white border-2 border-black p-6 flex flex-col items-center justify-center gap-4 hover:shadow-brutal transition-all hover:-translate-y-1 group h-32">
+                    <div className="w-12 h-12 relative grayscale group-hover:grayscale-0 transition-all duration-300">
+                      <img 
+                        src={tool.logo} 
+                        alt={`${tool.name} logo`} 
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <span className="font-mono font-bold text-sm uppercase tracking-wider">{tool.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
