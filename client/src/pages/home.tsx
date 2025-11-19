@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Cpu, Terminal, Brain, ArrowRight, Check, AlertCircle, Wrench, Video } from "lucide-react";
+import { Cpu, Terminal, Brain, ArrowRight, Check, AlertCircle, Wrench, Video, Mail } from "lucide-react";
 
 const content = {
   brand: "بنّاء",
@@ -69,6 +69,15 @@ const content = {
       "دعم فني للكود 24/7"
     ],
     cta: "قدّم طلب الانضمام"
+  },
+  footer: {
+    newsletter: {
+      title: "النشرة البريدية السرية",
+      description: "انضم إلى قائمتنا للحصول على أحدث الاستراتيجيات والأدوات قبل الجميع.",
+      placeholder: "بريدك الإلكتروني",
+      button: "اشترك"
+    },
+    copyright: "© 2025 بنّاء للذكاء الاصطناعي. جميع الحقوق محفوظة."
   }
 };
 
@@ -299,6 +308,50 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="border-t-2 border-black bg-white py-12 md:py-16">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-12">
+            {/* Newsletter */}
+            <div className="w-full max-w-xl">
+              <div className="flex items-center gap-3 mb-4">
+                <Mail className="w-6 h-6" />
+                <h3 className="font-display text-2xl uppercase">{content.footer.newsletter.title}</h3>
+              </div>
+              <p className="font-mono text-gray-600 mb-6 leading-relaxed">
+                {content.footer.newsletter.description}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <input 
+                  type="email" 
+                  placeholder={content.footer.newsletter.placeholder} 
+                  className="flex-1 bg-gray-50 border-2 border-black px-4 py-3 font-mono focus:outline-none focus:bg-white transition-colors placeholder:text-gray-400"
+                />
+                <button className="bg-black text-white border-2 border-black px-8 py-3 font-bold hover:bg-secondary hover:text-black transition-colors uppercase">
+                  {content.footer.newsletter.button}
+                </button>
+              </div>
+            </div>
+
+            {/* Brand & Copyright */}
+            <div className="flex flex-col gap-4 items-start md:items-end w-full md:w-auto">
+               <div className="flex items-center gap-2">
+                  <div className="bg-black text-white p-1">
+                    <Brain className="w-5 h-5" />
+                  </div>
+                  <span className="font-display text-xl uppercase tracking-tighter">{content.brand}</span>
+               </div>
+               <div className="flex gap-4 font-mono text-sm font-bold">
+                 <a href="#" className="hover:underline">تويتر</a>
+                 <a href="#" className="hover:underline">لينكد إن</a>
+                 <a href="#" className="hover:underline">انستجرام</a>
+               </div>
+               <p className="font-mono text-sm text-gray-500 mt-2">{content.footer.copyright}</p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
