@@ -6,7 +6,7 @@ type Language = "en" | "ar";
 
 const content = {
   en: {
-    brand: "BENNA_AI",
+    brand: "BENNA",
     nav: {
       features: "CURRICULUM",
       pricing: "TUITION",
@@ -30,7 +30,7 @@ const content = {
     ]
   },
   ar: {
-    brand: "بنّاء_للذكاء_الاصطناعي",
+    brand: "بنّاء",
     nav: {
       features: "المنهج الدراسي",
       pricing: "الرسوم",
