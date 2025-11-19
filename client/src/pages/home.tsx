@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { Cpu, Terminal, Brain, BrainCog, ArrowRight, Check, AlertCircle, Wrench, Video, Mail, Facebook, Instagram, Github, Youtube, Loader2 } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
+import { ApplicationModal } from "@/components/application-modal";
 
 const content = {
   brand: "بنّاء",
@@ -177,10 +177,12 @@ export default function Home() {
             <button className="hidden md:block border-2 border-black px-6 py-2 font-bold text-sm hover:bg-black hover:text-white transition-colors uppercase">
               {content.nav.login}
             </button>
-            <button className="bg-secondary border-2 border-black px-6 py-2 font-bold text-sm shadow-brutal-sm hover:shadow-brutal transition-all hover:-translate-y-0.5 uppercase flex items-center gap-2">
-              {content.nav.getAccess}
-              <ArrowRight className="w-4 h-4 rtl:rotate-180" />
-            </button>
+            <ApplicationModal>
+              <button className="bg-secondary border-2 border-black px-6 py-2 font-bold text-sm shadow-brutal-sm hover:shadow-brutal transition-all hover:-translate-y-0.5 uppercase flex items-center gap-2">
+                {content.nav.getAccess}
+                <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+              </button>
+            </ApplicationModal>
           </div>
         </div>
       </nav>
@@ -235,9 +237,11 @@ export default function Home() {
               <Terminal className="w-6 h-6" />
               {content.hero.ctaPrimary}
             </button>
-            <button className="bg-white text-black border-2 border-black px-8 py-4 font-display text-xl tracking-wide rtl:tracking-normal hover:bg-gray-50 shadow-brutal hover:shadow-brutal-lg transition-all hover:-translate-y-1 uppercase">
-              {content.hero.ctaSecondary}
-            </button>
+            <ApplicationModal>
+              <button className="bg-white text-black border-2 border-black px-8 py-4 font-display text-xl tracking-wide rtl:tracking-normal hover:bg-gray-50 shadow-brutal hover:shadow-brutal-lg transition-all hover:-translate-y-1 uppercase">
+                {content.hero.ctaSecondary}
+              </button>
+            </ApplicationModal>
           </div>
 
           {/* Stats Section */}
@@ -360,9 +364,11 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <button className="w-full bg-secondary text-black border-2 border-black py-4 font-display text-xl hover:bg-[#b3e600] transition-colors shadow-brutal-sm uppercase">
-                    {content.pricing.cta}
-                  </button>
+                  <ApplicationModal>
+                    <button className="w-full bg-secondary text-black border-2 border-black py-4 font-display text-xl hover:bg-[#b3e600] transition-colors shadow-brutal-sm uppercase">
+                      {content.pricing.cta}
+                    </button>
+                  </ApplicationModal>
                   
                   <div className="mt-4 text-center">
                     <span className="text-xs font-mono text-gray-400 uppercase tracking-wider">المقاعد محدودة للغاية</span>
