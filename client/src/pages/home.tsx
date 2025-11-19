@@ -1,6 +1,9 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Cpu, Terminal, Brain, BrainCog, ArrowRight, Check, AlertCircle, Wrench, Video, Mail, Facebook, Instagram, Github, Youtube } from "lucide-react";
+import { Cpu, Terminal, Brain, BrainCog, ArrowRight, Check, AlertCircle, Wrench, Video, Mail, Facebook, Instagram, Github, Youtube, Loader2 } from "lucide-react";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 
 const content = {
   brand: "بنّاء",
@@ -114,6 +117,36 @@ const content = {
 };
 
 export default function Home() {
+  const { toast } = useToast();
+  const [email, setEmail] = useState("");
+
+  const mutation = useMutation({
+    mutationFn: async (email: string) => {
+      const res = await apiRequest("POST", "/api/leads", { email });
+      return res.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "تم الاشتراك بنجاح",
+        description: "أهلاً بك في قائمة النخبة.",
+      });
+      setEmail("");
+    },
+    onError: (error: any) => {
+      toast({
+        title: "خطأ في الاشتراك",
+        description: error.message || "حدث خطأ ما، يرجى المحاولة مرة أخرى.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    mutation.mutate(email);
+  };
+
   // Force RTL direction for Arabic only site
   useEffect(() => {
     document.documentElement.dir = "rtl";
@@ -354,16 +387,23 @@ export default function Home() {
               <p className="font-mono text-gray-600 mb-6 leading-relaxed">
                 {content.footer.newsletter.description}
               </p>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3">
                 <input 
                   type="email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder={content.footer.newsletter.placeholder} 
                   className="flex-1 bg-gray-50 border-2 border-black px-4 py-3 font-mono focus:outline-none focus:bg-white transition-colors placeholder:text-gray-400"
+                  required
                 />
-                <button className="bg-black text-white border-2 border-black px-8 py-3 font-bold hover:bg-secondary hover:text-black transition-colors uppercase">
-                  {content.footer.newsletter.button}
+                <button 
+                  type="submit" 
+                  disabled={mutation.isPending}
+                  className="bg-black text-white border-2 border-black px-8 py-3 font-bold hover:bg-secondary hover:text-black transition-colors uppercase flex items-center justify-center min-w-[120px]"
+                >
+                  {mutation.isPending ? <Loader2 className="w-5 h-5 animate-spin" /> : content.footer.newsletter.button}
                 </button>
-              </div>
+              </form>
             </div>
 
             {/* Brand & Copyright */}
