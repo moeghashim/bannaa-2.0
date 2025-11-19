@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Cpu, Terminal, Brain, ArrowRight } from "lucide-react";
+import { Cpu, Terminal, Brain, ArrowRight, Check, AlertCircle } from "lucide-react";
 
 const content = {
   brand: "بنّاء",
@@ -37,6 +37,23 @@ const content = {
       { name: "V0", logo: "/logos/v0.svg" },
       { name: "ChatGPT", logo: "/logos/chatgpt.svg" },
     ]
+  },
+  pricing: {
+    title: "انضم إلى النخبة",
+    subtitle: "نحن لا نبيع كورسات، نحن نبني مهندسين.",
+    originalPrice: "$39",
+    price: "$9",
+    period: "/ اشتراك",
+    badge: "الدفعة الأولى فقط",
+    applicationNote: "نظام القبول: قائم على تقديم الطلب والموافقة",
+    features: [
+      "وصول كامل للمنهج الدراسي",
+      "توجيه مباشر من الخبراء",
+      "مجتمع مغلق للمطورين",
+      "شهادة إتمام معتمدة",
+      "دعم فني للكود 24/7"
+    ],
+    cta: "قدّم طلب الانضمام"
   }
 };
 
@@ -166,6 +183,71 @@ export default function Home() {
                   <span className="font-mono font-bold text-sm uppercase tracking-wider">{tool.name}</span>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Pricing Section */}
+          <div className="border-t-2 border-black py-12 md:py-24 relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute top-0 start-0 w-full h-full -z-10 opacity-5" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+
+            <div className="flex flex-col md:flex-row gap-12 items-stretch">
+              {/* Pricing Info */}
+              <div className="flex-1 flex flex-col justify-center">
+                 <div className="flex items-center gap-3 mb-6">
+                   <div className="bg-secondary border-2 border-black px-3 py-1 font-mono text-xs font-bold uppercase">
+                     {content.pricing.badge}
+                   </div>
+                 </div>
+                 
+                 <h2 className="font-display text-4xl md:text-5xl mb-4 leading-tight">
+                   {content.pricing.title}
+                 </h2>
+                 <p className="font-mono text-lg text-gray-600 mb-8 border-s-4 border-black ps-4 py-1">
+                   {content.pricing.subtitle}
+                 </p>
+                 
+                 <div className="flex flex-col gap-4">
+                   {content.pricing.features.map((feature, i) => (
+                     <div key={i} className="flex items-center gap-3">
+                       <div className="w-5 h-5 bg-black text-white flex items-center justify-center rounded-sm">
+                         <Check className="w-3 h-3" />
+                       </div>
+                       <span className="font-bold">{feature}</span>
+                     </div>
+                   ))}
+                 </div>
+              </div>
+
+              {/* Pricing Card */}
+              <div className="flex-1 md:max-w-md">
+                <div className="bg-white border-2 border-black p-8 shadow-brutal hover:shadow-brutal-lg transition-all relative">
+                  <div className="absolute -top-4 start-8 bg-black text-white px-4 py-1 font-mono text-sm font-bold transform -rotate-2 border-2 border-white">
+                    خصم ٧٥٪
+                  </div>
+
+                  <div className="flex items-baseline gap-2 mb-2">
+                    <span className="font-display text-7xl">{content.pricing.price}</span>
+                    <span className="text-gray-400 text-2xl line-through decoration-2 decoration-red-500 font-bold">{content.pricing.originalPrice}</span>
+                  </div>
+                  <div className="text-sm font-mono text-gray-500 mb-8">{content.pricing.period}</div>
+
+                  <div className="bg-gray-50 border-2 border-gray-200 p-4 mb-8 flex items-start gap-3">
+                    <AlertCircle className="w-5 h-5 mt-0.5 text-gray-600 shrink-0" />
+                    <p className="text-sm text-gray-600 font-medium leading-tight">
+                      {content.pricing.applicationNote}
+                    </p>
+                  </div>
+
+                  <button className="w-full bg-secondary text-black border-2 border-black py-4 font-display text-xl hover:bg-[#b3e600] transition-colors shadow-brutal-sm uppercase">
+                    {content.pricing.cta}
+                  </button>
+                  
+                  <div className="mt-4 text-center">
+                    <span className="text-xs font-mono text-gray-400 uppercase tracking-wider">المقاعد محدودة للغاية</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
