@@ -44,7 +44,7 @@ const content = {
       items: [
         { name: "Elevenlabs", logo: "/logos/elevenlabs.svg" },
         { name: "Sora", logo: "/logos/sora.svg" },
-        { name: "Kling", logo: "/logos/kling.svg" },
+        { name: "Grok", logo: "/logos/grok.svg" },
         { name: "Nanobanana", logo: "/logos/nanobanana.svg" },
         { name: "Krea", logo: "/logos/krea.svg" },
         { name: "Flora", logo: "/logos/flora.svg" },
