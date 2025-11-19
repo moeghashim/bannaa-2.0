@@ -38,6 +38,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  app.get("/api/leads", async (_req, res) => {
+    try {
+      const leads = await storage.getLeads();
+      res.json(leads);
+    } catch (e) {
+      res.status(500).json({ message: "Failed to fetch leads" });
+    }
+  });
+
+  app.get("/api/applications", async (_req, res) => {
+    try {
+      const applications = await storage.getApplications();
+      res.json(applications);
+    } catch (e) {
+      res.status(500).json({ message: "Failed to fetch applications" });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
