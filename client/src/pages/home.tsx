@@ -40,7 +40,7 @@ const content = {
   },
   pricing: {
     title: "انضم إلى النخبة",
-    subtitle: "نحن لا نبيع كورسات، نحن نبني مهندسين.",
+    subtitle: "نحن لا نبيع كورسات. بل نؤهِّل جيلاََ من البنّائين.",
     originalPrice: "$39",
     price: "$9",
     period: "/ اشتراك",
