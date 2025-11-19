@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { Cpu, Terminal, Brain, ArrowRight, Check, AlertCircle, Wrench, Video, Mail } from "lucide-react";
+import { Cpu, Terminal, Brain, ArrowRight, Check, AlertCircle, Wrench, Video, Mail, Facebook, Instagram, Github, Youtube } from "lucide-react";
 
 const content = {
   brand: "بنّاء",
@@ -77,7 +77,39 @@ const content = {
       placeholder: "بريدك الإلكتروني",
       button: "اشترك"
     },
-    copyright: "© 2025 بنّاء للذكاء الاصطناعي. جميع الحقوق محفوظة."
+    copyright: "© 2025 بنّاء للذكاء الاصطناعي. جميع الحقوق محفوظة.",
+    socials: [
+      { 
+        name: "Facebook", 
+        icon: <Facebook className="w-5 h-5" />, 
+        url: "https://www.facebook.com/BannaaTeam" 
+      },
+      { 
+        name: "X", 
+        icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>, // Custom X icon
+        url: "https://x.com/BannaaTeam" 
+      },
+      { 
+        name: "Instagram", 
+        icon: <Instagram className="w-5 h-5" />, 
+        url: "https://www.instagram.com/bannaateam/" 
+      },
+      { 
+        name: "GitHub", 
+        icon: <Github className="w-5 h-5" />, 
+        url: "https://github.com/moeghashim" 
+      },
+      { 
+        name: "TikTok", 
+        icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" /></svg>, 
+        url: "https://www.tiktok.com/@bannaateam" 
+      },
+      { 
+        name: "YouTube", 
+        icon: <Youtube className="w-5 h-5" />, 
+        url: "https://www.youtube.com/@bannaateam" 
+      },
+    ]
   }
 };
 
@@ -342,10 +374,19 @@ export default function Home() {
                   </div>
                   <span className="font-display text-xl uppercase tracking-tighter">{content.brand}</span>
                </div>
-               <div className="flex gap-4 font-mono text-sm font-bold">
-                 <a href="#" className="hover:underline">تويتر</a>
-                 <a href="#" className="hover:underline">لينكد إن</a>
-                 <a href="#" className="hover:underline">انستجرام</a>
+               <div className="flex flex-wrap gap-4 font-mono text-sm font-bold justify-end">
+                 {content.footer.socials.map((social, i) => (
+                   <a 
+                    key={i}
+                    href={social.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:text-secondary transition-colors p-2 border-2 border-transparent hover:border-black rounded-md"
+                    title={social.name}
+                   >
+                     {social.icon}
+                   </a>
+                 ))}
                </div>
                <p className="font-mono text-sm text-gray-500 mt-2">{content.footer.copyright}</p>
             </div>
