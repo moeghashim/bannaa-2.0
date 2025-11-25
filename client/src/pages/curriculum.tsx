@@ -11,6 +11,7 @@ const curriculums = [
     title: "بطل الكرتون",
     description: "تعلم إنشاء رسوم متحركة باستخدام الذكاء الاصطناعي",
     status: "available",
+    image: "/cartoon-hero.jpeg",
     modules: [
       {
         title: "الوحدة 1 — مولد البطل",
@@ -98,6 +99,7 @@ const curriculums = [
     title: "البنّاء الخطير",
     description: "برنامج تدريبي متقدم لبناء تطبيقات الذكاء الاصطناعي",
     status: "coming-soon",
+    image: undefined,
     modules: []
   }
 ];
@@ -150,7 +152,19 @@ export default function Curriculum() {
                 data-testid={`card-curriculum-${curriculum.id}`}
               >
                 <CardHeader>
-                  <div className="flex items-start justify-between gap-4">
+                  <div className="flex flex-col md:flex-row items-start gap-6">
+                    {curriculum.image && (
+                      <div className="w-full md:w-48 shrink-0">
+                        <div className="bg-white border-2 border-black shadow-brutal-sm overflow-hidden">
+                          <img 
+                            src={curriculum.image} 
+                            alt={curriculum.title}
+                            className="w-full h-auto object-contain"
+                            data-testid={`img-curriculum-${curriculum.id}`}
+                          />
+                        </div>
+                      </div>
+                    )}
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
                         <CardTitle className="font-display text-3xl md:text-4xl">
