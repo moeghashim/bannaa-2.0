@@ -127,7 +127,6 @@ export default function Curriculum() {
           </Link>
         </div>
       </nav>
-
       <main className="container mx-auto px-4 py-12 md:py-20">
         <div className="max-w-5xl mx-auto">
           <div className="mb-12">
@@ -135,9 +134,7 @@ export default function Curriculum() {
               <div className="bg-secondary border-2 border-black p-2">
                 <BookOpen className="w-6 h-6 text-black" />
               </div>
-              <h1 className="font-display text-4xl md:text-6xl uppercase tracking-tight rtl:tracking-normal">
-                المنهج الدراسي
-              </h1>
+              <h1 className="font-display text-4xl md:text-6xl uppercase tracking-tight rtl:tracking-normal">المنهج</h1>
             </div>
             <p className="font-mono text-lg text-gray-600 border-s-4 border-black ps-4 py-2">
               استكشف برامجنا التدريبية المتخصصة في بناء التطبيقات بالذكاء الاصطناعي
@@ -270,7 +267,6 @@ export default function Curriculum() {
           </div>
         </div>
       </main>
-
       <footer className="border-t-2 border-black bg-white py-8 mt-12">
         <div className="container mx-auto px-4 text-center">
           <p className="font-mono text-sm text-gray-500">
