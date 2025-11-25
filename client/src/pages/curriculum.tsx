@@ -8,7 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const curriculums = [
   {
     id: "cartoon-hero",
-    title: "بطل الكرتون",
+    title: "فارس الكرتون",
     description: "تعلم إنشاء رسوم متحركة باستخدام الذكاء الاصطناعي",
     status: "available",
     image: "/cartoon-hero.jpeg",
