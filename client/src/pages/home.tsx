@@ -9,7 +9,7 @@ import { ApplicationModal } from "@/components/application-modal";
 const content = {
   brand: "بنّاء",
   nav: {
-    features: "المنهج الدراسي",
+    features: "المنهج",
     pricing: "الرسوم",
     about: "رسالتنا",
     login: "بوابة الطلاب",
