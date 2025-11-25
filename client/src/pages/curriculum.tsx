@@ -112,18 +112,16 @@ export default function Curriculum() {
     <div className="min-h-screen bg-gray-50 font-sans" dir="rtl">
       <nav className="w-full border-b-2 border-black bg-white sticky top-0 z-50">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-          <Link href="/">
-            <a className="flex items-center gap-2" data-testid="link-home">
-              <div className="bg-black text-white p-1">
-                <BrainCog className="w-6 h-6" />
-              </div>
-              <h1 className="font-display text-xl md:text-2xl uppercase tracking-tighter rtl:tracking-normal">
-                بنّاء
-              </h1>
-            </a>
+          <Link href="/" className="flex items-center gap-2" data-testid="link-home">
+            <div className="bg-black text-white p-1">
+              <BrainCog className="w-6 h-6" />
+            </div>
+            <h1 className="font-display text-xl md:text-2xl uppercase tracking-tighter rtl:tracking-normal">
+              بنّاء
+            </h1>
           </Link>
-          <Link href="/">
-            <a className="font-mono text-sm font-bold hover:underline" data-testid="link-back">العودة للرئيسية</a>
+          <Link href="/" className="font-mono text-sm font-bold hover:underline" data-testid="link-back">
+            العودة للرئيسية
           </Link>
         </div>
       </nav>
@@ -246,13 +244,12 @@ export default function Curriculum() {
                 <p className="font-mono text-gray-600 mb-4">
                   انضم إلى برنامجنا التدريبي وابدأ رحلتك في بناء تطبيقات الذكاء الاصطناعي
                 </p>
-                <Link href="/">
-                  <a 
-                    className="inline-block bg-black text-white border-2 border-black px-6 py-3 font-bold hover:bg-secondary hover:text-black transition-colors uppercase"
-                    data-testid="button-apply-now"
-                  >
-                    قدّم الآن
-                  </a>
+                <Link 
+                  href="/"
+                  className="inline-block bg-black text-white border-2 border-black px-6 py-3 font-bold hover:bg-secondary hover:text-black transition-colors uppercase"
+                  data-testid="button-apply-now"
+                >
+                  قدّم الآن
                 </Link>
               </div>
             </div>

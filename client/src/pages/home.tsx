@@ -169,8 +169,8 @@ export default function Home() {
           </div>
 
           <div className="hidden md:flex items-center gap-8 font-mono text-sm font-bold tracking-tight rtl:tracking-normal">
-            <Link href="/curriculum">
-              <a className="hover:underline decoration-2 underline-offset-4" data-testid="link-curriculum">{content.nav.features}</a>
+            <Link href="/curriculum" className="hover:underline decoration-2 underline-offset-4" data-testid="link-curriculum">
+              {content.nav.features}
             </Link>
             <a href="#" className="hover:underline decoration-2 underline-offset-4">{content.nav.pricing}</a>
             <a href="#" className="hover:underline decoration-2 underline-offset-4">{content.nav.about}</a>
